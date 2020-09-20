@@ -3,7 +3,6 @@ import numpy as np
 
 
 face_cascade=cv2.CascadeClassifier('C:\\opencv\\build\\etc\\haarcascades\\haarcascade_frontalface_default.xml')
-eye_cascade=cv2.CascadeClassifier('C:\\opencv\\build\\etc\\haarcascades\\haarcascade_eye.xml')
 
 cap=cv2.VideoCapture(0)
 
@@ -23,8 +22,10 @@ while True:
 
     cv2.imshow('frame',frame)
     
-    if cv2.waitKey(20) & 0xFF==('q'):
-       break
+    k = cv2.waitKey(20) & 0xFF
+    if k == 27:
+        break
+
 
 cap.release()
 cv2.destroyAllWindows()
